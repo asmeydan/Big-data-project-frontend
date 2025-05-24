@@ -15,7 +15,9 @@ const page = () => {
         <AnalyzeCard />
       </div>
       <TableComponent />
-      <BarChart />
+      <div className=' w-full p-10'>
+        <BarChart />
+      </div>
     </div>
   )
 }

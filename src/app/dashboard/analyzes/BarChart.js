@@ -1,6 +1,9 @@
 'use client'
 import React from 'react'
-import ReactApexChart from 'react-apexcharts'
+import dynamic from 'next/dynamic'
+
+// SSR kapalı olarak yükleniyor
+const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 const BarChart = () => {
   const series = [
@@ -13,9 +16,7 @@ const BarChart = () => {
   const options = {
     chart: {
       type: 'bar',
-      toolbar: {
-        show: false,
-      },
+      toolbar: { show: false },
     },
     title: {
       text: 'Analiz Performans Özeti',
@@ -32,22 +33,12 @@ const BarChart = () => {
       enabled: true,
     },
     xaxis: {
-      categories: [
-        'Analiz Skoru',
-        'Çalışma Süresi (dk)',
-        'Slave Sayısı',
-        'Hata Sayısı',
-        'Bellek (MB)',
-      ],
+      categories: ['Analiz Skoru', 'Çalışma Süresi (dk)', 'Slave Sayısı', 'Hata Sayısı', 'Bellek (MB)'],
     },
-    colors: ['#10b981'], // yeşilimsi
+    colors: ['#10b981'],
   }
 
-  return (
-    <div className="bg-white p-4 rounded shadow w-full">
-      <ReactApexChart options={options} series={series} type="bar" height={350} />
-    </div>
-  )
+  return <ReactApexChart options={options} series={series} type="bar" height={350} width="100%"  />
 }
 
 export default BarChart
