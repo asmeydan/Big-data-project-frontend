@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import RadarChart from './RadarChart'
 import AnalyzeCard from './AnalyzeCard'
