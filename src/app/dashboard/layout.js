@@ -9,7 +9,7 @@ export default function DashboardLayout({
   const [nav, setNav] = useState(false);
 
   return (
-    <section className=" flex flex-row ">
+    <section className=" flex flex-row  ">
       <button
         className={`${
           nav ? "text-white" : " text-black"
